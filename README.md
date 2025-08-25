@@ -1,5 +1,5 @@
 # Node-Class
-Open terminal and execute - node server.js
+Open terminal and execute - `node server.js`
 
 Note: comment everything execute step by step each block. 
 
