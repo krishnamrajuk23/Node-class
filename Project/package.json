@@ -1,0 +1,22 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "backend services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krishnamrajuk23/Node-class.git"
+  },
+  "author": "krishna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krishnamrajuk23/Node-class/issues"
+  },
+  "homepage": "https://github.com/krishnamrajuk23/Node-class#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
