@@ -1,43 +1,49 @@
-import { sum } from './math';
+// import { sum } from './math';
+const path = require('path');
 
-const str = "Hello everyone";
-console.log(str);
+const imagePath = path.join(__dirname, 'image.png');
+console.log(imagePath);
 
-
-// import methods from other files
-console.log(sum(10, 20));
-
-
-//File System
-const fs = require('fs');
+// const str = "Hello everyone";
+// console.log(str);
 
 
-/******** Sync - Blocking Operation - Start ********/
-fs.writeFileSync('address.txt', "Hyd, india");
-
-fs.writeFileSync('contact.txt', "harshita, 999999999");
-
-const contactInfo = fs.readFileSync("./contact.txt", "utf-8");
-console.log(contactInfo)
-/******** Sync - Blocking Operation - End ********/
+// // import methods from other files
+// console.log(sum(10, 20));
 
 
+// //File System
+// const fs = require('fs');
 
-/******** Async - Non Blocking Operation Start********/
-fs.writeFile('text.txt', "Hello everyone", (err)=> {})
+
+// /******** Sync - Blocking Operation - Start ********/
+// fs.writeFileSync('address.txt', "Hyd, india");
+
+// fs.writeFileSync('contact.txt', "harshita, 999999999");
+
+// const contactInfo = fs.readFileSync("./contact.txt", "utf-8");
+// console.log(contactInfo)
+// /******** Sync - Blocking Operation - End ********/
 
 
-    fs.readFile("./image.png", "utf-8", (err,result) => {
-        console.log("video successful", result)
-    })
 
-/******** Async - Non Blocking Operation End********/
+// /******** Async - Non Blocking Operation Start********/
+// fs.writeFile('text.txt', "Hello everyone", (err)=> {})
 
-/*** Identifying the Number of cpus core are available - it help to identify no of threads are available****/
-const os = require("os");
-console.log(os.cpus().length);
 
-// town
-setTimeout(()=>{
-    // code 
-}, 1000)
+//     fs.readFile("./image.png", "utf-8", (err,result) => {
+//         console.log("video successful", result)
+//     })
+
+// /******** Async - Non Blocking Operation End********/
+
+
+
+// /*** Identifying the Number of cpus core are available - it help to identify no of threads are available****/
+// const os = require("os");
+// console.log(os.cpus().length);
+
+// // town
+// setTimeout(()=>{
+//     // code 
+// }, 1000)

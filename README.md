@@ -1,13 +1,23 @@
-Node js
+# Node.js Project
 
-Open terminal and execute -> node server.js
+## Task
+1. Add a video or audio file to the project directory.
+2. Use the `fs` module to read the file.
 
-Note: comment everything execute step by step each block. 
+## Node.js Process
+![Node.js Process](image.png)
 
-Task:
-    Paste video or audio file 
-    Read the file using `fs` 
+## Instructions to Run the Project
+1. Open the **Project Folder** in the terminal.
+2. Install dependencies:
+   ```sh 
+   npm install
 
+## This will install:
 
-Node js Process
-![alt text](image.png)   
+1.Production dependencies: dotenv, express
+2.Development dependencies: typescript, @typescript-eslint/eslint-plugin
+
+## Start the application:
+   ```sh
+npm run start
