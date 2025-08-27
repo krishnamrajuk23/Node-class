@@ -3,6 +3,10 @@
 ## Task
 1. Add a video or audio file to the project directory.
 2. Use the `fs` module to read the file.
+3. Put and Delete APIs
+
+## Software to install:
+Node js, Postman 
 
 ## Node.js Process
 ![Node.js Process](image.png)
@@ -14,10 +18,11 @@
    npm install
 
 ## This will install:
-
-1.Production dependencies: dotenv, express
-2.Development dependencies: typescript, @typescript-eslint/eslint-plugin
+1. Production dependencies: dotenv, express
+2. Development dependencies: typescript, @typescript-eslint/eslint-plugin
 
 ## Start the application:
    ```sh
-npm run start
+   npm run start
+
+
