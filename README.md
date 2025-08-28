@@ -26,3 +26,5 @@ Node js, Postman
    npm run start
 
 
+npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier eslint-plugin-import
+npx eslint --init
