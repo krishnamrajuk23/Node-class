@@ -24,7 +24,4 @@ Node js, Postman
 ## Start the application:
    ```sh
    npm run start
-
-
-npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier eslint-plugin-import
-npx eslint --init
+![alt text](<Screenshot 2025-08-29 at 10.59.45 PM.png>) ![alt text](<Screenshot 2025-08-29 at 10.59.51 PM.png>)

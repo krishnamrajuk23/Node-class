@@ -1,16 +1,14 @@
 import { NextFunction, Request, Response } from "express";
-
-let store: any = [{ id: 1, name: "John" }, { id: 2, name: "krish" }, { id: 3, name: "anand" }]; // Temporary in-memory store
+import { User } from "../models/user.model";
 
 export async function listOfUsers(req: Request, res: Response) {
-    res.json(store);
+    const users = await User.find(); // Database => user data
+    res.status(200).json({data: users, message: "Successfully fetched all users"});
 }
 
 export async function create(req: Request, res: Response, next: NextFunction) {
     try{
-        const id = String(Date.now()); // Simple unique ID based on timestamp 11222314
-        const user = {id, ...req.body}  // {id:1231234123 ,name: 'hh', address: 'hyd'}
-        store.push(user);
+        const user = await User.create(req.body);
         res.status(201).json({user, message: "User created successfully"});
     }catch(e){
         console.log(e);
@@ -20,13 +18,10 @@ export async function create(req: Request, res: Response, next: NextFunction) {
 
 export async function update(req: Request, res: Response, next: NextFunction) {
     try{
-        const updateStore = store.map((item: any)=> {
-            if(req.params.id === item.id) {
-                return { ...item, ...req.body}
-            }
-            return item;
-        });
-        res.json({ user:updateStore , message: "User updated successfully"});
+        const id = req.params.id;
+       // const {name, email, password} = req.body;
+        const user = await User.findByIdAndUpdate(id, req.body, {new: true});
+        res.json({ data: user , message: "User updated successfully"});
     }catch(e){
         console.log(e);
         next(e)
