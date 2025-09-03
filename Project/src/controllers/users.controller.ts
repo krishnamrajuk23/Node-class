@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { User } from "../models/user.model";
+import bcrypt from "bcryptjs";
 
 export async function listOfUsers(req: Request, res: Response) {
     const users = await User.find(); // Database => user data
@@ -8,8 +9,44 @@ export async function listOfUsers(req: Request, res: Response) {
 
 export async function create(req: Request, res: Response, next: NextFunction) {
     try{
-        const user = await User.create(req.body);
-        res.status(201).json({user, message: "User created successfully"});
+        const {name, email, password}= req.body;
+
+        if(!name || !email || !password){
+            return res.status(400).json({message: "Name, email and password are required"});
+        }
+
+        const hashPassword = await bcrypt.hash(password, 10);
+        await User.create({name, email, password: hashPassword});
+        res.status(201).json({status:"Successful" , message: "User created successfully"});
+
+    }catch(e){
+        console.log(e);
+        next(e)
+    }
+}
+
+export async function singeOfUser(req: Request, res: Response, next: NextFunction) {
+    try{
+       const {email, password} = req.body;
+      if(!email || !password){
+        return res.status(404).json({message: "Please enter valid details"});
+      }
+
+      const user = await User.findOne({email}); // user - database
+
+      if(!user){
+        return res.status(404).json({message: "User not found, Please enter valid details"});
+      }
+
+      const validPassword = await bcrypt.compare(password, user.password);
+
+      if(!validPassword){
+        return res.status(403).json({message: "Unauthorized user, Please enter valid details"});
+      }
+
+      const payload = { username: user.name, email: user.email, role: user.role };
+
+      res.json({ data: payload , message: "Successfully fetched the user"});
     }catch(e){
         console.log(e);
         next(e)
