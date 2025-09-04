@@ -25,3 +25,8 @@ Node js, Postman
    ```sh
    npm run start
 ![alt text](<Screenshot 2025-08-29 at 10.59.45 PM.png>) ![alt text](<Screenshot 2025-08-29 at 10.59.51 PM.png>)
+
+
+## Rest API url
+http://localhost:3000/api/users/login ---> success --> accessToken
+http://localhost:3000/api/products---> Postman header ==> authorization : Bearer <accessToken>
