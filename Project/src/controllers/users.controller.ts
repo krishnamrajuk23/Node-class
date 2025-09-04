@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { User } from "../models/user.model";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 export async function listOfUsers(req: Request, res: Response) {
     const users = await User.find(); // Database => user data
@@ -45,8 +46,10 @@ export async function singeOfUser(req: Request, res: Response, next: NextFunctio
       }
 
       const payload = { username: user.name, email: user.email, role: user.role };
+      const accessToken = jwt.sign(payload, process.env.JWT_SECRET_KEY as string, {expiresIn: '15m'});
 
-      res.json({ data: payload , message: "Successfully fetched the user"});
+      res.json({ data: payload, accessToken, message: "Successfully fetched the user"});
+      
     }catch(e){
         console.log(e);
         next(e)
