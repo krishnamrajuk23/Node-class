@@ -8,10 +8,10 @@ export async function authenticateToken(req: Request, res : Response, next: Next
     if(!token) return res.sendStatus(401);
 
     jwt.verify(token, process.env.JWT_SECRET_KEY as string, (err, user) => {
-        if(err) return res.sendStatus(403);
+        if(err) return res.status(403).json("unauthorized token not valid");
 
         // console.log("user====", user);
-        // req.body.user = user;
+        req.body.user = user;
         return next();
     })  
 }

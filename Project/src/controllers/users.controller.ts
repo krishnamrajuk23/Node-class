@@ -82,8 +82,8 @@ export async function singeOfUser(req: Request, res: Response, next: NextFunctio
       }
 
       const payload = { username: user.name, email: user.email, role: user.role };
-      const accessToken = jwt.sign(payload, process.env.JWT_SECRET_KEY as string, {expiresIn: '15m'});
-      const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET as string, {expiresIn: '1d'});
+      const accessToken = jwt.sign(payload, process.env.JWT_SECRET_KEY as string, {expiresIn: '1h'});
+      const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_KEY as string, {expiresIn: '1d'});
 
       res.json({ data: payload, accessToken, refreshToken, message: "Successfully fetched the user"});
       

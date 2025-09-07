@@ -93,3 +93,13 @@ export async function productPriceGreaterThen250(req: Request, res: Response, ne
         next(e)
     }
 }
+
+export async function insertProductDetails(req: Request, res: Response, next: NextFunction){
+    try{
+        const products = await Product.create(req.body);
+        res.status(200).json({data: products, message: "Successfully inserted product details"});
+    }catch(e){
+        console.log(e);
+        next(e)
+    }
+}
