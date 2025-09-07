@@ -7,8 +7,7 @@ const userSchema = new Schema({
     role:{
         type: String,
         enum: ['admin', 'user', 'seller'],
-        default: 'user',
-        immutable: true
+        default: 'user'
     },
     createdAt: {type: Date, default: Date.now}
 }, {timestamps: true});
