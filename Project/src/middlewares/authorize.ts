@@ -1,5 +1,5 @@
 export const authorize = (req: any, res: any, next: any) => {
-        const user = req.body.user;
+        const user = res.locals.user;
         const roles = "admin,seller";
         if (user && roles.split(',').includes(user.role)) {
             next();
