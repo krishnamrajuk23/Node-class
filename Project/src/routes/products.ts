@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { listOfProducts, insertProductDetails, sortedProducts, avgPriceAndSumOfStockInCategory, avgRating, tagsStats, productPriceGreaterThen250 } from "../controllers/products.controller";
+import { listOfProducts, insertProductDetails, searchProduct,
+    sortedProducts, avgPriceAndSumOfStockInCategory, avgRating, tagsStats, productPriceGreaterThen250 } from "../controllers/products.controller";
 import { authenticateToken } from "../middlewares/authenticateToken";
 import {authorize} from "../middlewares/authorize"; 
 
@@ -12,4 +13,5 @@ route.get("/avgRating", avgRating);
 route.get('/tagsStats', tagsStats);
 route.get('/priceTag', productPriceGreaterThen250)
 route.post('/createProducts', authenticateToken, authorize, insertProductDetails)
+route.get('/search',  searchProduct)
 export default route;

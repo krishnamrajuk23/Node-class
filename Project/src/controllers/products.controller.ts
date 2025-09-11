@@ -104,3 +104,15 @@ export async function insertProductDetails(req: Request, res: Response, next: Ne
         next(e)
     }
 }
+
+export async function searchProduct(req: Request, res: Response, next: NextFunction){
+    const {category, name, limit} = req.query;
+    console.log("query", category, name)
+    try{
+        const products = await Product.find({name: {$regex: name, $options: 'i', $limit: limit?.toString()} } );
+        res.status(200).json({data: products, message: "Successfully fetched product details"});
+    }catch(e){
+        console.log(e);
+        next(e)
+    }
+}
