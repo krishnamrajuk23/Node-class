@@ -25,6 +25,12 @@ Node js, Postman
    ```sh
    npm run start
 ![alt text](<Screenshot 2025-08-29 at 10.59.45 PM.png>) ![alt text](<Screenshot 2025-08-29 at 10.59.51 PM.png>)
+![alt text](image-3.png)
+
+![alt text](image-2.png)
+
+
+![alt text](image-1.png)
 
 
 ## Rest API url
